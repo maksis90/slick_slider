@@ -1,0 +1,137 @@
+
+.main {
+  width: 100%;
+  background: #ffffff url("../images/rectangle.png") no-repeat center center;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    background: url("../images/triangle.png");
+    width: 45px;
+    height: 45px;
+    @include pos($t: 67%, $l: 10px);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    background: url("../images/plus.png");
+    width: 30px;
+    height: 30px;
+    @include pos($t: 12%, $r: 18%);
+  }
+
+  &__subtitle {
+  font: 600 18px $font;
+  margin-bottom: 25px;
+  padding-top: 50px ;
+  }
+
+  &__title {
+    font: 600 86px/90px $font;
+    margin-top: -10px;
+  }
+}
+
+.slider {
+  position: relative;
+  margin-left: 140px;
+  transition: all .3s;
+
+  &__img {
+    height: 400px;
+    width: 440px;
+    min-width: 100%;
+
+  }
+
+  &__item {
+    overflow: hidden;
+    margin: 0 20px;
+    cursor: pointer;
+    position: relative;
+
+    &:hover{
+
+      .slider__text {
+        height: 100%;
+        background: rgba(27, 241, 173, .8);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-transform: uppercase;
+    font: 28px/24px $font;
+    color: #ffffff;
+    padding: 30px;
+    @include pos($l: 0, $b: 0);
+    @include size(100%, 50px);
+    opacity: 0;
+
+  }
+
+  &__title {
+    letter-spacing: 5px;
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+  }
+}
+
+.slick {
+
+  &-slide {
+      opacity: .3;
+  }
+
+  &-active {
+      opacity: 1;
+  }
+
+  &-prev,
+  &-next {
+  font-size: 0;
+  background: none;
+  z-index: 999;
+  cursor: pointer;
+  position: absolute;
+  top: 38.5%;
+  opacity: .5;
+  transition: all .3s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &::before {
+    content:'';
+    display: block;
+    background: url("../images/arrow.png") center no-repeat;
+    width: 100px;
+    height: 100px;
+
+    font-size: 50px;
+  }
+}
+
+  &-prev {
+  left: -120px;
+}
+
+  &-next {
+  right: 20px;
+  transform: rotate(180deg);
+}
+
+}
